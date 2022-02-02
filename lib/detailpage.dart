@@ -26,11 +26,22 @@ class DetailPage extends StatelessWidget {
           return SidebarWidget();
         }));
             },
+            
           ),
           Align(
             alignment: Alignment.bottomCenter,
             child: Container(
-              height: MediaQuery.of(context).size.height/2.8,width: MediaQuery.of(context).size.width,color: Colors.white,
+              height: MediaQuery.of(context).size.height/2.8,
+              width: MediaQuery.of(context).size.width,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.only(topLeft: Radius.circular(30),topRight: Radius.circular(30))
+              ),
+              child: Column(children: [
+                Expanded(child: Column(children: [
+
+                ],))
+              ],),
             ),
           )
           

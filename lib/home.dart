@@ -1,15 +1,18 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:sample_project/detailpage.dart';
 import 'package:sample_project/widget/sidebarwidget.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({ Key? key }) : super(key: key);
+  
 
   @override
   Widget build(BuildContext context) {
     
     return Scaffold(
+    
       bottomNavigationBar: Container(
         height: 70,
         
@@ -37,7 +40,9 @@ class HomeScreen extends StatelessWidget {
         shadowColor: Colors.pink[300],
         title: Text('Welcome'),
         actions: [
-          IconButton(icon: Icon(Icons.search_rounded),onPressed: (){}),
+          IconButton(icon: Icon(Icons.search_rounded),onPressed: (){
+            showSearch(context: context, delegate: MySearchDelegate(),);
+          }),
                       IconButton(icon: Icon(Icons.shopping_bag_outlined),onPressed: (){}),
         ],),
         drawer: SidebarWidget(),
@@ -69,7 +74,7 @@ class HomeScreen extends StatelessWidget {
               Expanded(
                child: GridView.count(crossAxisCount: 2,
                children: <Widget>[
-                 
+                
                  buildColumnWithRow("https://assetscdn1.paytm.com/images/catalog/product/F/FO/FOOSMOKY-TRENDYSMOK381955669A9D8/1622965634045_0..jpg?imwidth=282&impolicy=hq",context),
                 
                  buildColumnWithRow("https://5.imimg.com/data5/VY/JM/FF/SELLER-69536136/men-red-jackets-500x500.jpg",context),
@@ -79,13 +84,16 @@ class HomeScreen extends StatelessWidget {
                  buildColumnWithRow("https://cdn.pocket-lint.com/r/s/1200x/assets/images/141437-cameras-review-canon-eos-200d-image2-ejkgtps96p.jpg",context),
                  
                ],
+               
                )
                
                 )
+                
               
-              
+          
             
           ],
+          
         ),
         
 
@@ -130,7 +138,16 @@ class HomeScreen extends StatelessWidget {
                            ),
                            child: Stack(
                              children: <Widget>[
-                               Image.network(img,width: 200,fit: BoxFit.fill,)
+                               Image.network(img,width: 200,fit: BoxFit.fill,),
+                               Padding(
+                                 padding: const EdgeInsets.all(140.0),
+                                 child: IconButton
+                                 (
+                                   icon: Icon(Icons.favorite),onPressed: (){},
+                                      color: Colors.white,
+                                      iconSize: 35,
+                                 ),
+                               ),
                              ],
                            ),
                          ),
@@ -153,5 +170,59 @@ class HomeScreen extends StatelessWidget {
             child: Icon(icon,color: isSelected? Colors.white : Colors.black,),
           );
   }
+}
+
+class MySearchDelegate extends SearchDelegate{
+ 
+  @override
+  Widget? buildLeading(BuildContext context) {
+    IconButton(icon: const Icon(Icons.arrow_back),onPressed: ()=>close(context, null)
+    );
+    
+    
+  }
+   
+  List<Widget>? buildActions(BuildContext context) {
+    [IconButton(icon: Icon(Icons.clear),onPressed: (){
+      if (query.isEmpty)
+      {
+        close(context, null);
+      }else{
+      query='';
+      }
+    },)];
+  
+  }
+
+
+  @override
+  Widget buildSuggestions(BuildContext context) {
+    List<String>suggestions=[
+      'shoes',
+      'bags',
+      'cloths',
+      'camera'
+    ];
+    return ListView.builder(
+      itemCount: suggestions.length,
+      itemBuilder: (context, index){
+        final suggestion = suggestions[index];
+        return ListTile(
+         title: Text(suggestion),
+         onTap: (){
+           query = suggestion;
+           showResults(context);
+         },
+        );
+      }
+      );
+    
+  }
+  @override
+  Widget buildResults(BuildContext context) {
+   
+    throw UnimplementedError();
+  }
+
 }
 
