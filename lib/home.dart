@@ -1,20 +1,30 @@
 
+
+
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+
+
 import 'package:sample_project/detailpage.dart';
 import 'package:sample_project/widget/sidebarwidget.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({ Key? key }) : super(key: key);
+class HomeScreen extends StatefulWidget {
+  
+  
   
 
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  int selectedItemIndex = 0;
   @override
   Widget build(BuildContext context) {
     
     return Scaffold(
-    
-      bottomNavigationBar: Container(
-        height: 70,
+     
+      bottomNavigationBar: SizedBox(
+        height: 60,
         
         child: Container(
           decoration: BoxDecoration(
@@ -27,9 +37,9 @@ class HomeScreen extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              BuildContainerBottomNav(Icons.bar_chart_outlined),
-              BuildContainerBottomNav(Icons.add_a_photo,isSelected: true),
-              BuildContainerBottomNav(Icons.email_outlined),
+              BuildContainerBottomNav(Icons.bar_chart_outlined,0),
+              BuildContainerBottomNav(Icons.add_a_photo,1),
+              BuildContainerBottomNav(Icons.email_outlined,2),
             ],
           ),
         ),
@@ -47,6 +57,7 @@ class HomeScreen extends StatelessWidget {
         ],),
         drawer: SidebarWidget(),
         
+        
         body: 
         
         Column(
@@ -61,7 +72,7 @@ class HomeScreen extends StatelessWidget {
               height: 166,
               
               decoration: BoxDecoration(
-              
+                
                 borderRadius: BorderRadius.circular(10),
                 image: DecorationImage(
                   fit: BoxFit.fill,
@@ -96,7 +107,7 @@ class HomeScreen extends StatelessWidget {
           
         ),
         
-
+       
      
              
           
@@ -116,13 +127,13 @@ class HomeScreen extends StatelessWidget {
           
                
              
-           
+         
         
     );    
 
   }
 
-  GestureDetector buildColumnWithRow(String img, BuildContext context) {
+  Widget buildColumnWithRow(String img, BuildContext context) {
     return  GestureDetector(
       onTap: (){
         Navigator.of(context).push(MaterialPageRoute(builder: (context){
@@ -156,19 +167,26 @@ class HomeScreen extends StatelessWidget {
     
   }
 
-  Container BuildContainerBottomNav(IconData icon,{isSelected=false}) {
-    return Container(
-            decoration: BoxDecoration(
-              color: isSelected? Colors.pink[100]:Colors.white,
-              shape: BoxShape.circle,
-              boxShadow:isSelected? [
-                BoxShadow(color: Colors.grey,blurRadius: 10,spreadRadius: 1)
-              ]:[],
+ Widget BuildContainerBottomNav(IconData icon,int index,) {
+    return GestureDetector(
+      onTap: (){
+        setState(() {
+          selectedItemIndex = index;
+        });
+      },
+      child: Container(
+              decoration: BoxDecoration(
+                color: index==selectedItemIndex? Colors.pink[100]:Colors.white,
+                shape: BoxShape.circle,
+                boxShadow:index==selectedItemIndex? [
+                  BoxShadow(color: Colors.grey,blurRadius: 10,spreadRadius: 1)
+                ]:[],
+              ),
+              height: 50,
+              width: 50,
+              child: Icon(icon,color: index==selectedItemIndex? Colors.white : Colors.black,),
             ),
-            height: 50,
-            width: 50,
-            child: Icon(icon,color: isSelected? Colors.white : Colors.black,),
-          );
+    );
   }
 }
 
@@ -182,8 +200,9 @@ class MySearchDelegate extends SearchDelegate{
     
   }
    
+  @override
   List<Widget>? buildActions(BuildContext context) {
-    [IconButton(icon: Icon(Icons.clear),onPressed: (){
+    [IconButton(icon: const Icon(Icons.clear),onPressed: (){
       if (query.isEmpty)
       {
         close(context, null);

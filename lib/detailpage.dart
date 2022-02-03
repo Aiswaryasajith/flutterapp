@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:sample_project/widget/sidebarwidget.dart';
 
-class DetailPage extends StatelessWidget {
+class DetailPage extends StatefulWidget {
 
   final String img; 
   final BuildContext context;
 
   DetailPage(this.img, this.context);
-  
 
+  @override
+  State<DetailPage> createState() => _DetailPageState();
+}
+
+class _DetailPageState extends State<DetailPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,7 +20,7 @@ class DetailPage extends StatelessWidget {
       body: Stack(
         children: [
         Image.network(
-          img,height: MediaQuery.of(context).size.height/1.5,width: MediaQuery.of(context).size.width,fit: BoxFit.cover,
+          widget.img,height: MediaQuery.of(context).size.height/1.5,width: MediaQuery.of(context).size.width,fit: BoxFit.cover,
           ),
           IconButton
           (
