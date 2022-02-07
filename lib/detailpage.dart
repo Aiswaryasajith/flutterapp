@@ -6,7 +6,7 @@ class DetailPage extends StatefulWidget {
   final String img; 
   final BuildContext context;
 
-  DetailPage(this.img, this.context);
+ DetailPage(this.img, this.context);
 
   @override
   State<DetailPage> createState() => _DetailPageState();
@@ -16,7 +16,7 @@ class _DetailPageState extends State<DetailPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: SidebarWidget(),
+      
       body: Stack(
         children: [
         Image.network(

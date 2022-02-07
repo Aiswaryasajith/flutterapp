@@ -1,13 +1,19 @@
 
 
 
+
+
 import 'package:flutter/material.dart';
+import 'package:sample_project/campaign.dart';
+
 
 
 import 'package:sample_project/detailpage.dart';
 import 'package:sample_project/widget/sidebarwidget.dart';
 
 class HomeScreen extends StatefulWidget {
+ 
+
   
   
   
@@ -17,9 +23,10 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int selectedItemIndex = 0;
+  int selectedItemIndex = 1;
   @override
   Widget build(BuildContext context) {
+  
     
     return Scaffold(
      
@@ -46,7 +53,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       appBar:AppBar(
         foregroundColor: Colors.white,
-        backgroundColor: Colors.pink[300],
+        backgroundColor: Colors.pink[200],
         shadowColor: Colors.pink[300],
         title: Text('Welcome'),
         actions: [
@@ -56,56 +63,196 @@ class _HomeScreenState extends State<HomeScreen> {
                       IconButton(icon: Icon(Icons.shopping_bag_outlined),onPressed: (){}),
         ],),
         drawer: SidebarWidget(),
+
+      body: 
         
-        
-        body: 
-        
-        Column(
-          
-          children: [
-            SizedBox(
-              width: 40,
-              height: 10,
+        SingleChildScrollView(
+          physics: BouncingScrollPhysics(),
+          child: Center(
+            child: Column(
+              
+              children: [
+                SizedBox(
+                  width: 40,
+                  height: 10,
+                ),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context){
+          return CampaignPage();
+        }));
+                  },
+                  child: Container(
+                    width: 400,
+                    height: 166,
+                    
+                    decoration: BoxDecoration(
+                      
+                      borderRadius: BorderRadius.circular(10),
+                      image: DecorationImage(
+                        fit: BoxFit.fill,
+                        image: NetworkImage("https://t3.ftcdn.net/jpg/04/44/73/62/360_F_444736205_2OVRaCzyl2PPfW9mDwRygOVVEh2sofrN.jpg"),)
+                    ),
+                    ),
+                ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Row(
+                    children: [
+                       const SizedBox(
+                            width: 5,
+                          ),
+                    buildColum("https://assetscdn1.paytm.com/images/catalog/product/F/FO/FOOSMOKY-TRENDYSMOK381955669A9D8/1622965634045_0..jpg?imwidth=282&impolicy=hq",context),
+                  
+                    buildColum("https://5.imimg.com/data5/VY/JM/FF/SELLER-69536136/men-red-jackets-500x500.jpg",context),
+                      
+                    ],
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Row(
+                    children: [
+                       const SizedBox(
+                            width: 5,
+                          ),
+                    buildColum("https://sc04.alicdn.com/kf/Hdf69a8b0fd914065a6a3e513a86aee7cM.jpg",context),
+                    buildColum("https://imgmedia.lbb.in/media/2021/02/602a7bef11cac138ef9ea867_1613396975774.jpg",context),
+                      
+                    ],
+                  ),
+                   SizedBox(
+                    height: 10,
+                  ),
+                  Row(
+                    children: [
+                       const SizedBox(
+                            width: 5,
+                          ),
+                    buildColum("https://www.dhresource.com/260x260s/f2-albu-g19-M00-C9-EF-rBNaN2DYX0yACFa5AAFYK5z3Huc236.jpg/outdoor-bags-simple-korean-style-pure-candy.jpg",context),
+                    buildColum("https://cdn.pocket-lint.com/r/s/1200x/assets/images/141437-cameras-review-canon-eos-200d-image2-ejkgtps96p.jpg",context),
+                      
+                    ],
+                  ),
+                   SizedBox(
+                    height: 10,
+                  ),
+                  Row(
+                    children: [
+                       const SizedBox(
+                            width: 5,
+                          ),
+                    buildColum("https://sc04.alicdn.com/kf/Hdf69a8b0fd914065a6a3e513a86aee7cM.jpg",context),
+                    buildColum("https://sc04.alicdn.com/kf/Hdf69a8b0fd914065a6a3e513a86aee7cM.jpg",context),
+                      
+                    ],
+                  ),
+                  SizedBox(
+                  width: 40,
+                  height: 10,
+                ),
+                  Container(
+                  width: 400,
+                  height: 166,
+                  
+                  decoration: BoxDecoration(
+                    
+                    borderRadius: BorderRadius.circular(10),
+                    image: DecorationImage(
+                      fit: BoxFit.fill,
+                      image: NetworkImage("https://t3.ftcdn.net/jpg/04/44/73/62/360_F_444736205_2OVRaCzyl2PPfW9mDwRygOVVEh2sofrN.jpg"),)
+                  ),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Row(
+                    children: [
+                       const SizedBox(
+                            width: 5,
+                          ),
+                    buildColum("https://assetscdn1.paytm.com/images/catalog/product/F/FO/FOOSMOKY-TRENDYSMOK381955669A9D8/1622965634045_0..jpg?imwidth=282&impolicy=hq",context),
+                  
+                    buildColum("https://5.imimg.com/data5/VY/JM/FF/SELLER-69536136/men-red-jackets-500x500.jpg",context),
+                      
+                    ],
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Row(
+                    children: [
+                       const SizedBox(
+                            width: 5,
+                          ),
+                    buildColum("https://sc04.alicdn.com/kf/Hdf69a8b0fd914065a6a3e513a86aee7cM.jpg",context),
+                    buildColum("https://imgmedia.lbb.in/media/2021/02/602a7bef11cac138ef9ea867_1613396975774.jpg",context),
+                      
+                    ],
+                  ),
+                   SizedBox(
+                    height: 10,
+                  ),
+                  Row(
+                    children: [
+                       const SizedBox(
+                            width: 5,
+                          ),
+                    buildColum("https://www.dhresource.com/260x260s/f2-albu-g19-M00-C9-EF-rBNaN2DYX0yACFa5AAFYK5z3Huc236.jpg/outdoor-bags-simple-korean-style-pure-candy.jpg",context),
+                    buildColum("https://cdn.pocket-lint.com/r/s/1200x/assets/images/141437-cameras-review-canon-eos-200d-image2-ejkgtps96p.jpg",context),
+                      
+                    ],
+                  ),
+                   SizedBox(
+                    height: 10,
+                  ),
+                  Row(
+                    children: [
+                       const SizedBox(
+                            width: 5,
+                          ),
+                    buildColum("https://sc04.alicdn.com/kf/Hdf69a8b0fd914065a6a3e513a86aee7cM.jpg",context),
+                    buildColum("https://sc04.alicdn.com/kf/Hdf69a8b0fd914065a6a3e513a86aee7cM.jpg",context),
+                      
+                    ],
+                  ),
+                  
+                   
+                  
+                    
+                  
+              
+                
+              ],
+              
+              
             ),
-            Container(
-              width: 400,
-              height: 166,
-              
-              decoration: BoxDecoration(
-                
-                borderRadius: BorderRadius.circular(10),
-                image: DecorationImage(
-                  fit: BoxFit.fill,
-                  image: NetworkImage("https://t3.ftcdn.net/jpg/04/44/73/62/360_F_444736205_2OVRaCzyl2PPfW9mDwRygOVVEh2sofrN.jpg"),)
-              ),
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Expanded(
-               child: GridView.count(crossAxisCount: 2,
-               children: <Widget>[
-                
-                 buildColumnWithRow("https://assetscdn1.paytm.com/images/catalog/product/F/FO/FOOSMOKY-TRENDYSMOK381955669A9D8/1622965634045_0..jpg?imwidth=282&impolicy=hq",context),
-                
-                 buildColumnWithRow("https://5.imimg.com/data5/VY/JM/FF/SELLER-69536136/men-red-jackets-500x500.jpg",context),
-                 buildColumnWithRow("https://sc04.alicdn.com/kf/Hdf69a8b0fd914065a6a3e513a86aee7cM.jpg",context),
-                 buildColumnWithRow("https://imgmedia.lbb.in/media/2021/02/602a7bef11cac138ef9ea867_1613396975774.jpg",context),
-                 buildColumnWithRow("https://www.dhresource.com/260x260s/f2-albu-g19-M00-C9-EF-rBNaN2DYX0yACFa5AAFYK5z3Huc236.jpg/outdoor-bags-simple-korean-style-pure-candy.jpg",context),
-                 buildColumnWithRow("https://cdn.pocket-lint.com/r/s/1200x/assets/images/141437-cameras-review-canon-eos-200d-image2-ejkgtps96p.jpg",context),
-                 
-               ],
-               
-               )
-               
-                )
-                
-              
-          
-            
-          ],
-          
+          ),
         ),
+        
+        
+      
+         
+       
+
+             
+                     
+                    
+           
+      
+        
+        
+         
+    
+        
+           
+              
+              
+           
+        
+        
+        
         
        
      
@@ -124,48 +271,61 @@ class _HomeScreenState extends State<HomeScreen> {
            
              
               
-          
+      
                
              
          
         
-    );    
+    );  
 
   }
 
-  Widget buildColumnWithRow(String img, BuildContext context) {
-    return  GestureDetector(
+  Widget buildColum(String img,BuildContext context) {
+    return GestureDetector(
       onTap: (){
-        Navigator.of(context).push(MaterialPageRoute(builder: (context){
+         Navigator.of(context).push(MaterialPageRoute(builder: (context){
           return DetailPage(img,context);
         }));
       },
-      child: Card(
-        
-                         shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(20.0))),
-                         elevation: 10.0,
-                         child: ClipRRect(
-                           borderRadius: BorderRadius.all(Radius.circular(20.0),
-                           ),
-                           child: Stack(
-                             children: <Widget>[
-                               Image.network(img,width: 200,fit: BoxFit.fill,),
-                               Padding(
-                                 padding: const EdgeInsets.all(140.0),
-                                 child: IconButton
-                                 (
-                                   icon: Icon(Icons.favorite),onPressed: (){},
-                                      color: Colors.white,
-                                      iconSize: 35,
-                                 ),
-                               ),
-                             ],
-                           ),
-                         ),
-                       ),
-    );  
+      child: Column(
+                        children: [
+                         
+                           Stack(children: [
+                            Container(
+                            
+                            height: 200,
+                            width: 200,
+                            child: ClipRRect
+                            (
+                              borderRadius: BorderRadius.circular(20),
+                              child: Image.network(img,fit: BoxFit.cover,),
+                              
     
+                            )
+                            
+                          ),
+                          
+                                   
+                                   IconButton
+                                   (
+                                     icon: Icon(Icons.favorite),onPressed: (){},
+                                        color: Colors.white,
+                                        iconSize: 35,
+                                   ),
+                                
+                          
+                           ],),
+                          
+                        ],
+                      ),
+    );
   }
+
+  
+
+  
+
+  
 
  Widget BuildContainerBottomNav(IconData icon,int index,) {
     return GestureDetector(
@@ -188,6 +348,8 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
     );
   }
+
+  
 }
 
 class MySearchDelegate extends SearchDelegate{
