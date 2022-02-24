@@ -10,6 +10,7 @@ class CampaignPage extends StatefulWidget {
 
 class _CampaignPageState extends State<CampaignPage> {
   int selectedItemIndex = 1;
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -132,7 +133,9 @@ class _CampaignPageState extends State<CampaignPage> {
                        fit: BoxFit.cover,
                        )
                      ),
+                     
                  ),
+                 
                );
   }
    Widget BuildContainerBottomNav(IconData icon,int index,) {

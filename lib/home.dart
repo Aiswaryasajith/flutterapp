@@ -19,7 +19,9 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  var _myColorOne = Colors.white;
   int selectedItemIndex = 1;
+  
   @override
   Widget build(BuildContext context) {
   
@@ -311,9 +313,11 @@ class _HomeScreenState extends State<HomeScreen> {
                                    
                                    IconButton
                                    (
-                                     icon: Icon(Icons.favorite),onPressed: (){},
-                                        color: Colors.white,
-                                        iconSize: 35,
+                                     icon: Icon(Icons.favorite_border_rounded),onPressed: ()=>setState((){
+                                       _myColorOne=Colors.orange.shade300; }),
+                                      color: _myColorOne,
+                                       
+                                        iconSize: 35,     
                                    ),
                                 
                           
