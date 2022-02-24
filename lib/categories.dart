@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:sample_project/widget/sidebarwidget.dart';
 
-class CampaignPage extends StatefulWidget {
-  const CampaignPage({ Key? key }) : super(key: key);
+class CategoriesPage extends StatefulWidget {
+  const CategoriesPage({ Key? key }) : super(key: key);
 
   @override
-  State<CampaignPage> createState() => _CampaignPageState();
+  State<CategoriesPage> createState() => _CategoriesPageState();
 }
 
-class _CampaignPageState extends State<CampaignPage> {
+class _CategoriesPageState extends State<CategoriesPage> {
   int selectedItemIndex = 1;
   @override
   Widget build(BuildContext context) {
@@ -46,11 +46,11 @@ class _CampaignPageState extends State<CampaignPage> {
                       IconButton(icon: Icon(Icons.shopping_bag_outlined),onPressed: (){}),
         ],),
         drawer: SidebarWidget(),
-      
-       body:      
+
+       body:       
              Column(
                children: [
-               Column(
+                  Column(
                  children: [
                    SizedBox(
                      height: 10,
@@ -69,7 +69,7 @@ class _CampaignPageState extends State<CampaignPage> {
                     ),
                      child: Center(
                        
-                       child: Text("CAMPAIGN NAME",style: TextStyle(  
+                       child: Text("CATEGORIES",style: TextStyle(  
                                    fontSize: 20,  
                                    color: Colors.black,  
                                    fontWeight: FontWeight.w500,    
@@ -98,13 +98,12 @@ class _CampaignPageState extends State<CampaignPage> {
                              crossAxisSpacing: 1,
                              mainAxisSpacing: 1,
                              children: [
-                              
-                               campaign('https://m.media-amazon.com/images/I/71hgzeX--TL._AC_SS450_.jpg'),
-                               campaign('https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcR5CbfFU65Zp_OcPuGq4K1ujtqOIWG8IvYBTtkWF5293qpKAQB3RmS5RuI-05Hc5qlu1YrBcfCNOCu4pNH3SWrGKqGbhDi9jMJzyZUBo1nlVBqM_0R-bZUYjA&usqp=CAE'),
-                               campaign('https://m.media-amazon.com/images/I/61i9kCsTwTL._AC_UY327_QL65_.jpg'),
-                               campaign('https://m.media-amazon.com/images/I/41nwo7rInKL._SY450_.jpg'),
-                               campaign('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSStzxxjvCQ3QYPd2MeR8s3wKYUHbnAi0aOhg&usqp=CAU'),
-                               campaign('https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcSGzufh5E-b9Y3RxGsnJvBPj_lvhY-4_qEkhD8pRUoqRXV6tpTRIsl7pbrFWN2S7MDIoAVaaMc79LC5AlQq1_Lhu883wWnM9pjznE_sNpACq6Z2GCysM6_fsQ&usqp=CAE'),
+                               campaign('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxccIgZfPO_OwvmKICSNZtnO2CfBFf_0L61g&usqp=CAU'),
+                               campaign('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWSYA7T6c4XvNu64HB3Rl1Vpe35VJadK_glQ&usqp=CAU'),
+                               campaign('https://thumbs.dreamstime.com/b/natural-scandinavian-living-room-interior-wooden-furniture-mockup-picture-empty-white-wall-154024411.jpg'),
+                               campaign('https://media.istockphoto.com/photos/row-of-books-on-a-shelf-multicolored-book-spines-stack-in-the-picture-id1222550815?b=1&k=20&m=1222550815&s=170667a&w=0&h=MTxBeBrrrYtdlpzhMpD1edwLYQf3OPgkNeDEgIzYJww='),
+                               campaign('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRt2ZVDpX3TF_R8zCUMV389ljV_SJtkMTeXPA&usqp=CAU'),
+                               campaign('https://media.istockphoto.com/photos/sports-balls-on-the-field-with-yard-line-soccer-ball-american-and-picture-id942206100?b=1&k=20&m=942206100&s=170667a&w=0&h=S6SIMeZy5KWm-SEmOAlW-TGTUqCEvtK9WrupPA7qLKg='),
                              ],
                              )
                         
@@ -216,18 +215,3 @@ class MySearchDelegate extends SearchDelegate{
   }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

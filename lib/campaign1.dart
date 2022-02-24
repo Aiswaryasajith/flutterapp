@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:sample_project/widget/sidebarwidget.dart';
 
-class CampaignPage extends StatefulWidget {
-  const CampaignPage({ Key? key }) : super(key: key);
+class CampaignPage1 extends StatefulWidget {
+  const CampaignPage1({ Key? key }) : super(key: key);
 
   @override
-  State<CampaignPage> createState() => _CampaignPageState();
+  State<CampaignPage1> createState() => _CampaignPage1State();
 }
 
-class _CampaignPageState extends State<CampaignPage> {
+class _CampaignPage1State extends State<CampaignPage1> {
   int selectedItemIndex = 1;
   @override
   Widget build(BuildContext context) {
@@ -46,15 +46,12 @@ class _CampaignPageState extends State<CampaignPage> {
                       IconButton(icon: Icon(Icons.shopping_bag_outlined),onPressed: (){}),
         ],),
         drawer: SidebarWidget(),
-      
-       body:      
+
+       body:       
              Column(
                children: [
                Column(
                  children: [
-                   SizedBox(
-                     height: 10,
-                   ),
                    Container(
                      width: 400,
                     height: 40,
@@ -81,9 +78,6 @@ class _CampaignPageState extends State<CampaignPage> {
                                  ),),
                      ),
                    ),
-            SizedBox(
-              height: 10,
-            ),
                  ],
                ),
               
@@ -98,13 +92,12 @@ class _CampaignPageState extends State<CampaignPage> {
                              crossAxisSpacing: 1,
                              mainAxisSpacing: 1,
                              children: [
-                              
                                campaign('https://m.media-amazon.com/images/I/71hgzeX--TL._AC_SS450_.jpg'),
-                               campaign('https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcR5CbfFU65Zp_OcPuGq4K1ujtqOIWG8IvYBTtkWF5293qpKAQB3RmS5RuI-05Hc5qlu1YrBcfCNOCu4pNH3SWrGKqGbhDi9jMJzyZUBo1nlVBqM_0R-bZUYjA&usqp=CAE'),
+                               campaign('https://m.media-amazon.com/images/I/71D3y82w27L._AC_UY327_FMwebp_QL65_.jpg'),
                                campaign('https://m.media-amazon.com/images/I/61i9kCsTwTL._AC_UY327_QL65_.jpg'),
                                campaign('https://m.media-amazon.com/images/I/41nwo7rInKL._SY450_.jpg'),
-                               campaign('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSStzxxjvCQ3QYPd2MeR8s3wKYUHbnAi0aOhg&usqp=CAU'),
-                               campaign('https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcSGzufh5E-b9Y3RxGsnJvBPj_lvhY-4_qEkhD8pRUoqRXV6tpTRIsl7pbrFWN2S7MDIoAVaaMc79LC5AlQq1_Lhu883wWnM9pjznE_sNpACq6Z2GCysM6_fsQ&usqp=CAE'),
+                               campaign('https://m.media-amazon.com/images/I/31UOKpF7iQL._AC_UY327_QL65_.jpg'),
+                               campaign('https://m.media-amazon.com/images/I/71lT-zWEYkL._SX522_.jpg'),
                              ],
                              )
                         
@@ -216,18 +209,3 @@ class MySearchDelegate extends SearchDelegate{
   }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

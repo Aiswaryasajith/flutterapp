@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:sample_project/categories.dart';
 
 class SidebarWidget extends StatefulWidget {
   const SidebarWidget({ Key? key }) : super(key: key);
@@ -58,7 +59,11 @@ class _SidebarWidgetState extends State<SidebarWidget> {
                 ),
                 ListTile(
                   title: Text('CATEGORIES',style: TextStyle(fontSize: 15),),
-                  onTap: (){},
+                  onTap: (){
+                      Navigator.of(context).push(MaterialPageRoute(builder: (context){
+          return CategoriesPage();
+        }));
+                  },
                   leading: Icon(Icons.category,color: Colors.pinkAccent,),
                 ),
                 ListTile(
